@@ -11,10 +11,10 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/Ladicle/tcardgen/pkg/canvas"
-	"github.com/Ladicle/tcardgen/pkg/canvas/fontfamily"
-	"github.com/Ladicle/tcardgen/pkg/config"
-	"github.com/Ladicle/tcardgen/pkg/hugo"
+	"github.com/nsebhastian/tcardgen/pkg/canvas"
+	"github.com/nsebhastian/tcardgen/pkg/canvas/fontfamily"
+	"github.com/nsebhastian/tcardgen/pkg/config"
+	"github.com/nsebhastian/tcardgen/pkg/hugo"
 )
 
 const (
@@ -122,7 +122,7 @@ func (o *RootCommandOption) Run(streams IOStreams) error {
 	var errCnt int
 	for _, f := range o.files {
 		base := filepath.Base(f)
-		name := base[:len(base)-len(filepath.Ext(base))]
+		name := filepath.Base(f[:len(f)-len(base)])
 		out := filepath.Join(o.outDir, fmt.Sprintf("%s.png", name))
 
 		if err := generateTCard(f, out, tpl, ffa, cnf); err != nil {

@@ -9,7 +9,7 @@ Also, both toml and yaml formats are supported.
 ## Installation
 
 ```bash
-go get github.com/Ladicle/tcardgen
+go get github.com/nsebhastian/tcardgen
 ```
 
 ## Getting Started
