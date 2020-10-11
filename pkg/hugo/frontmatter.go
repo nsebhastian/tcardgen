@@ -11,8 +11,8 @@ import (
 
 const (
 	fmTitle      = "title"
-	fmAuthor     = "author"
-	fmCategories = "categories"
+	// fmAuthor     = "author"
+	// fmCategories = "categories"
 	fmTags       = "tags"
 
 	fmDate        = "date"        // priority high
@@ -49,12 +49,12 @@ func parseFrontMatter(r io.Reader) (*FrontMatter, error) {
 	if fm.Title, err = getString(&cfm, fmTitle); err != nil {
 		return nil, err
 	}
-	if fm.Author, err = getFirstStringItem(&cfm, fmAuthor); err != nil {
-		return nil, err
-	}
-	if fm.Category, err = getFirstStringItem(&cfm, fmCategories); err != nil {
-		return nil, err
-	}
+	// if fm.Author, err = getFirstStringItem(&cfm, fmAuthor); err != nil {
+	// 	return nil, err
+	// }
+	// if fm.Category, err = getFirstStringItem(&cfm, fmCategories); err != nil {
+	// 	return nil, err
+	// }
 	if fm.Tags, err = getAllStringItems(&cfm, fmTags); err != nil {
 		return nil, err
 	}
